@@ -1,11 +1,11 @@
 package main
 
 import (
-	"nepali-address-api/controllers"
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"nepali-address-api/controllers"
+	"net/http"
+	"os" // Import the "os" package
 )
 
 func init() {
@@ -34,6 +34,12 @@ func main() {
 
 	r.GET("/provinces", controllers.GetProvinces)
 	r.GET("/districts/:province", controllers.GetDistrictsByProvince)
+	// Get the port from the environment variable, or use a default value (e.g., 8080)
 
-	r.Run() // listen and serve on
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	r.Run("0.0.0.0:" + port)
 }
