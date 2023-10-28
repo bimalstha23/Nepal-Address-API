@@ -33,6 +33,7 @@ func main() {
 	})
 
 	r.GET("/provinces", controllers.GetProvinces)
+	r.GET("/districts/:province", controllers.GetDistrictsByProvince)
 
 	r.Run() // listen and serve on
 }
