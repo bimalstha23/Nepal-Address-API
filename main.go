@@ -34,6 +34,7 @@ func main() {
 
 	r.GET("/provinces", controllers.GetProvinces)
 	r.GET("/districts/:province", controllers.GetDistrictsByProvince)
+	r.GET("/municipals/:district", controllers.GetMunicipalsByDistrict)
 	// Get the port from the environment variable, or use a default value (e.g., 8080)
 
 	port := os.Getenv("PORT")

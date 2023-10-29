@@ -57,6 +57,29 @@ func GetDistrictsByProvince(c *gin.Context) {
 	})
 }
 
+func GetMunicipalsByDistrict(c *gin.Context) {
+
+	// get district name from url
+	district := c.Param("district")
+
+	var municipalData struct {
+		Municipals []string `json:"municipals"`
+	}
+
+	filePath := filepath.Join("data/municipalsByDistrict", district+".json")
+
+	err := readDataFromJSON(filePath, &municipalData)
+
+	if err != nil {
+		c.JSON(500, gin.H{"error": "Failed to fetch municipals"})
+		return
+	}
+
+	c.JSON(200, gin.H{
+		"municipals": municipalData.Municipals,
+	})
+}
+
 func readDataFromJSON(filename string, dataStructure interface{}) error {
 	// Get the full path to the JSON file
 	fullPath := filepath.Join(".", filename)
