@@ -1,20 +1,11 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 	"nepali-address-api/controllers"
 	"net/http"
 	"os" // Import the "os" package
+	"github.com/gin-gonic/gin"
 )
-
-func init() {
-	err := godotenv.Load()
-
-	if err != nil {
-		panic("Error loading .env file")
-	}
-}
 
 func main() {
 	r := gin.Default()
