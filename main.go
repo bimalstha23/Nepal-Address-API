@@ -4,7 +4,6 @@ import (
 	"nepali-address-api/controllers"
 	"net/http"
 	"os" // Import the "os" package
-
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
