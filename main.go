@@ -4,11 +4,16 @@ import (
 	"nepali-address-api/controllers"
 	"net/http"
 	"os" // Import the "os" package
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	r := gin.Default()
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"*"}
+	r.Use(cors.New(config))
+
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
