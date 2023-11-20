@@ -42,7 +42,7 @@ GET /provinces
 
 #### Parameters:
 
-- `province` (URL parameter) - The ID or name of the province for which you want to retrieve districts.
+- `province` (URL parameter) - The name of the province for which you want to retrieve districts.
 
 #### Example Request:
 
@@ -80,7 +80,7 @@ GET /districts/bagmati
 
 #### Parameters:
 
-- `district` (URL parameter) - The ID or name of the district for which you want to retrieve municipalities.
+- `district` (URL parameter) - The  name of the district for which you want to retrieve municipalities.
 
 #### Example Request:
 
